@@ -12,7 +12,7 @@ type Size = "sm" | "md" | "lg";
  * of navigating. Accepts the same visual props as <Button>.
  */
 export function BookConsultationButton({
-  children = "Book a Consultation",
+  children = "Talk to Us",
   variant = "primary",
   size = "md",
   className,

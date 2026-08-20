@@ -144,7 +144,7 @@ export function BookingModal({
           <div>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-pastel-600">
               <CalendarCheck className="h-4 w-4" aria-hidden />
-              Book a Consultation
+              Talk to Us
             </span>
             <h2
               id="booking-title"

@@ -1,4 +1,4 @@
-import { ArrowRight, LayoutTemplate, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -26,22 +26,26 @@ export function Hero() {
         <div className="max-w-2xl">
           <Reveal>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-pastel-600">
-              Data &amp; Business Intelligence
+              Business Intelligence
             </span>
           </Reveal>
 
           <Reveal delay={60}>
             <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.06] text-burgundy-900 sm:text-5xl lg:text-[3.5rem]">
-              Helping businesses understand their numbers and make smarter
-              decisions.
+              Helping businesses understand what their data is saying and what to
+              do next.
             </h1>
           </Reveal>
 
           <Reveal delay={120}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft text-pretty">
-              Every business has a story, and the numbers tell it. We help you
-              make sense of your data, so you can spot opportunities, measure
-              performance and decide with facts instead of guesswork.
+              Every business has a story, and its numbers tell it. We partner
+              with businesses to make sense of their data, understand what is
+              driving their performance, uncover opportunities, and turn insights
+              into clear, practical actions. Whether you already have systems in
+              place or need better ways to track your business, we help you turn
+              information into decisions that support better performance and
+              long-term growth.
             </p>
           </Reveal>
 
@@ -60,20 +64,19 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={220}>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <BookConsultationButton size="lg" />
+            {/* Hover-swap: Explore Solutions hover moves the burgundy fill off Talk to Us */}
+            <div className="group mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <BookConsultationButton
+                size="lg"
+                className="group-has-[.hero-explore:hover]:bg-white group-has-[.hero-explore:hover]:text-burgundy group-has-[.hero-explore:hover]:shadow-none group-has-[.hero-explore:hover]:ring-1 group-has-[.hero-explore:hover]:ring-inset group-has-[.hero-explore:hover]:ring-burgundy/30"
+              />
               <Button
                 href={routes.exploreSolutions}
                 variant="outline"
                 size="lg"
-                className="bg-white"
+                className="hero-explore bg-white hover:!border-burgundy hover:!bg-burgundy hover:!text-white"
               >
                 Explore Solutions
-              </Button>
-              <Button href={routes.viewTemplates} variant="secondary" size="lg">
-                <LayoutTemplate className="h-4 w-4" aria-hidden />
-                View Templates
-                <ArrowRight className="h-4 w-4" aria-hidden />
               </Button>
             </div>
           </Reveal>

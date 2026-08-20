@@ -20,7 +20,7 @@ import { contact, routes } from "@/lib/site";
 const options = [
   {
     icon: CalendarCheck,
-    label: "Book a Consultation",
+    label: "Talk to Us",
     value: "Schedule a free introductory call",
     href: routes.bookConsultation,
     cta: "Book now",
