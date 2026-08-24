@@ -29,18 +29,20 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
         {service.description}
       </p>
 
-      <ul className="mt-6 grid gap-2.5 border-t border-ink/[0.06] pt-6">
-        {service.capabilities.map((cap) => (
-          <li key={cap} className="flex items-start gap-2.5 text-sm text-ink-soft">
-            <span className="mt-0.5 grid h-4 w-4 flex-none place-items-center rounded-full bg-pastel-200 text-burgundy">
-              <Check className="h-2.5 w-2.5" strokeWidth={3} aria-hidden />
-            </span>
-            {cap}
-          </li>
-        ))}
-      </ul>
+      {service.capabilities.length > 0 && (
+        <ul className="mt-6 grid gap-2.5 border-t border-ink/[0.06] pt-6">
+          {service.capabilities.map((cap) => (
+            <li key={cap} className="flex items-start gap-2.5 text-sm text-ink-soft">
+              <span className="mt-0.5 grid h-4 w-4 flex-none place-items-center rounded-full bg-pastel-200 text-burgundy">
+                <Check className="h-2.5 w-2.5" strokeWidth={3} aria-hidden />
+              </span>
+              {cap}
+            </li>
+          ))}
+        </ul>
+      )}
 
-      <div className="mt-7 pt-1">
+      <div className="mt-auto pt-7">
         <Link
           href={`/services#${service.slug}`}
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-burgundy transition-colors hover:text-burgundy-700"

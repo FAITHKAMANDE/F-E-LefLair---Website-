@@ -28,33 +28,67 @@ function ServiceBlock({
             {service.headline}
           </Title>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
-            <span className="font-semibold text-ink">Who it’s for:</span>{" "}
+          <h3 className="mt-6 font-display text-lg font-semibold text-ink">
+            Who it’s for
+          </h3>
+          <p className="mt-2 max-w-xl text-base leading-relaxed text-ink-muted">
             {service.whoFor}
           </p>
+          {service.whoForNote && (
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-muted/80">
+              {service.whoForNote}
+            </p>
+          )}
 
-          <ul className="mt-7 space-y-3.5">
-            {service.deliverables.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <Check
-                  className="mt-0.5 h-5 w-5 flex-none text-pastel-600"
-                  strokeWidth={2.5}
-                  aria-hidden
-                />
-                <span className="text-base text-ink-soft">{item}</span>
-              </li>
-            ))}
-          </ul>
+          {service.helpWith ? (
+            <>
+              <h3 className="mt-7 font-display text-lg font-semibold text-ink">
+                We help you:
+              </h3>
+              <ul className="mt-4 space-y-5">
+                {service.helpWith.map((item) => (
+                  <li key={item.title} className="flex items-start gap-3">
+                    <Check
+                      className="mt-1 h-5 w-5 flex-none text-pastel-600"
+                      strokeWidth={2.5}
+                      aria-hidden
+                    />
+                    <div>
+                      <p className="font-semibold text-ink">{item.title}</p>
+                      <p className="mt-0.5 text-base leading-relaxed text-ink-muted">
+                        {item.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <ul className="mt-7 space-y-3.5">
+              {service.deliverables.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <Check
+                    className="mt-0.5 h-5 w-5 flex-none text-pastel-600"
+                    strokeWidth={2.5}
+                    aria-hidden
+                  />
+                  <span className="text-base text-ink-soft">{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <BookConsultationButton size="lg" />
+            <BookConsultationButton size="lg" withIcon={false}>
+              {service.ctaLabel}
+            </BookConsultationButton>
             <Button
               href="/how-we-work"
               variant="outline"
               size="lg"
               className="bg-white"
             >
-              See how we work
+              See How We Work
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Button>
           </div>
@@ -84,15 +118,15 @@ function ServiceBlock({
           {/* How engagements are priced — package names only, no invented prices */}
           <div className="rounded-2xl border border-blush-200/70 bg-blush-50 p-7 sm:p-8">
             <h3 className="font-display text-xl font-semibold text-ink">
-              How engagements are priced
+              Ways we can work together
             </h3>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-5 space-y-4">
               {service.packages.map((pkg) => (
-                <li key={pkg.name} className="text-base text-ink-soft">
-                  <span className="font-semibold text-burgundy-800">
-                    {pkg.name}
-                  </span>:{" "}
-                  {pkg.note}
+                <li key={pkg.name}>
+                  <p className="font-semibold text-burgundy-800">{pkg.name}</p>
+                  <p className="mt-0.5 text-base leading-relaxed text-ink-soft">
+                    {pkg.note}
+                  </p>
                 </li>
               ))}
             </ul>

@@ -7,9 +7,18 @@ import { HeroVisual } from "./HeroVisual";
 import { routes } from "@/lib/site";
 
 const highlights = [
-  "Clear dashboards that answer the questions you actually ask.",
-  "Practical systems that keep your records clean and current.",
-  "Plain-language guidance on what to do next.",
+  {
+    label: "Understand",
+    text: "Make sense of your data and understand what is happening in your business.",
+  },
+  {
+    label: "Decide",
+    text: "Turn insights into informed decisions and clear priorities for your business.",
+  },
+  {
+    label: "Grow",
+    text: "Take practical action to improve performance and support long-term growth.",
+  },
 ];
 
 export function Hero() {
@@ -51,13 +60,20 @@ export function Hero() {
 
           {/* Highlight bullets */}
           <Reveal delay={160}>
-            <ul className="mt-7 space-y-3">
+            <ul className="mt-7 space-y-4">
               {highlights.map((item) => (
-                <li key={item} className="flex items-start gap-3">
+                <li key={item.label} className="flex items-start gap-3">
                   <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-pastel-200 text-pastel-600">
                     <Check className="h-3 w-3" strokeWidth={3} aria-hidden />
                   </span>
-                  <span className="text-base text-ink-soft">{item}</span>
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.14em] text-burgundy">
+                      {item.label}
+                    </p>
+                    <p className="mt-0.5 text-base leading-relaxed text-ink-soft">
+                      {item.text}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ul>

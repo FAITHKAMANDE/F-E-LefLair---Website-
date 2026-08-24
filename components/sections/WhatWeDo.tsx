@@ -12,25 +12,25 @@ const questions = [
     icon: TrendingUp,
     question: "What’s working?",
     answer:
-      "See which products, services and channels are truly driving results, so you can do more of what already works.",
+      "Identify the products, services, customers and channels driving your results and understand what’s worth doing more of.",
   },
   {
     icon: TrendingDown,
     question: "What’s not working?",
     answer:
-      "Surface the quiet leaks (slow stock, thin margins, rising costs) before they eat into your profit.",
+      "Surface the quiet leaks: slow-moving stock, rising costs, weak margins and underperforming areas before they hurt your business.",
   },
   {
     icon: Gauge,
     question: "How is the business doing?",
     answer:
-      "Get a clear, honest read on performance (sales, profit, cash and growth) in numbers you can trust.",
+      "Get a clear picture of your performance across sales, profit, cash flow, customers and operations, not just isolated numbers.",
   },
   {
     icon: Compass,
     question: "What should you do next?",
     answer:
-      "Move from data to decisions with practical, prioritised next steps, not just charts and reports.",
+      "Go beyond charts and reports to turn insights into practical, prioritised actions, so you know where to focus and what to do next.",
   },
 ];
 
@@ -39,9 +39,9 @@ export function WhatWeDo() {
     <section id="what-we-do" className="section bg-cream-100">
       <Container>
         <SectionHeading
-          eyebrow="What We Do"
+          eyebrow="What We Help You Answer"
           title="We answer the questions that actually run your business."
-          description="Your numbers are always talking. We help you hear them clearly, turning everyday business data into straight answers you can act on."
+          description="Your numbers are always talking. We help you hear them clearly, turning everyday business data into straightforward answers you can act on."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -68,8 +68,8 @@ export function WhatWeDo() {
         {/* One-line summary of the promise */}
         <Reveal className="mt-10">
           <p className="mx-auto max-w-2xl text-center font-display text-lg font-medium text-burgundy-800 sm:text-xl text-balance">
-            In short: we tell you what happened, why it happened, and what to do
-            about it.
+            In short: we help you understand what happened, why it happened, and
+            what to do next.
           </p>
         </Reveal>
       </Container>

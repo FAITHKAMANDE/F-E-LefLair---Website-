@@ -22,8 +22,8 @@ export function Services({
         <SectionHeading
           as={headingAs}
           eyebrow="Services"
-          title="Four ways we help you use your numbers."
-          description="From understanding what your data means to building the systems that capture it. Practical support across the whole picture."
+          title="Four ways we help your business understand, decide and grow."
+          description="Whether you need help understanding your data, improving performance, or building better ways to track your business, we provide practical solutions designed around what your business needs."
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">

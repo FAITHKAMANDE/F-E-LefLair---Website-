@@ -52,150 +52,251 @@ export type Service = {
   // Detailed service page
   headline: string;
   whoFor: string;
+  whoForNote?: string;
   deliverables: string[];
+  /** Optional richer "We help you:" list (title + description per item). */
+  helpWith?: { title: string; description: string }[];
+  /** Label for the primary CTA (opens the consultation calendar). */
+  ctaLabel: string;
   gains: string[];
   packages: ServicePackage[];
 };
 
 /** Shared note under every pricing card — no prices are invented. */
 export const PRICING_NOTE =
-  "Final scope and fees are confirmed after a short discovery conversation.";
+  "Scope and fees are tailored to the needs of your business and confirmed after a short discovery conversation.";
 
 export const services: Service[] = [
   {
     slug: "business-intelligence",
     title: "Business Intelligence",
     icon: "brainCircuit",
+    ctaLabel: "Let’s Talk About Your Business",
     description:
-      "We turn raw business data into a clear line of sight: from what happened to what to do next.",
-    capabilities: [
-      "What happened",
-      "Why it happened",
-      "What’s likely to happen",
-      "What should be done next",
-    ],
+      "Turn your business data into insights you can understand and act on.",
+    capabilities: [],
     headline:
-      "We bring your numbers into one place and turn them into reporting you can trust and read at a glance.",
+      "We help you understand what your data is saying, why it matters, and what to do next.",
     whoFor:
-      "Owners and managers juggling spreadsheets, till reports and platform exports who need one reliable view.",
-    deliverables: [
-      "Consolidate sales, stock, costs and cash into a single reporting source.",
-      "Define the handful of measures that actually drive your business.",
-      "Automated weekly and monthly reporting packs, delivered on time.",
-      "Plain-language commentary that explains what changed and why.",
+      "Business owners and managers who have data but need help making sense of it, understanding performance, and turning information into better decisions.",
+    whoForNote:
+      "Whether your data lives across spreadsheets, POS systems, accounting software or other business tools, we help bring the pieces together into a clearer picture.",
+    deliverables: [],
+    helpWith: [
+      {
+        title: "Understand performance",
+        description:
+          "Analyse your sales, costs, profitability, inventory, customers and other key business measures to understand what is really happening.",
+      },
+      {
+        title: "Identify what matters",
+        description:
+          "Uncover trends, opportunities, underperformance, unusual changes and areas that need attention.",
+      },
+      {
+        title: "Explain the story behind the numbers",
+        description:
+          "Go beyond what changed to understand why it changed and what it means for the business.",
+      },
+      {
+        title: "Recommend what to do next",
+        description:
+          "Turn insights into clear, practical recommendations that help you decide where to focus and what action to take.",
+      },
     ],
     gains: [
-      "One version of the truth for every meeting.",
-      "Hours of manual reporting time returned to your team.",
-      "Earlier warning when performance drifts.",
+      "A clearer picture of how your business is performing.",
+      "Less time spent compiling reports and more time understanding them.",
+      "Earlier visibility into problems, trends and opportunities.",
+      "Clear recommendations for what to focus on next.",
     ],
     packages: [
-      { name: "Reporting Foundations", note: "one-off setup project." },
       {
-        name: "Monthly Insight Retainer",
-        note: "reporting, review call and commentary.",
+        name: "Insight Setup",
+        note: "A one-off engagement to organise your data, establish the right measures and create a clear reporting foundation.",
       },
-      { name: "Quarterly Deep Dive", note: "add-on analysis on a specific question." },
+      {
+        name: "Ongoing Business Insights",
+        note: "Regular reporting, performance reviews, commentary and recommendations to help you stay on top of what your numbers are saying.",
+      },
+      {
+        name: "Focused Analysis",
+        note: "A deeper look at a specific business question, problem or opportunity when you need to understand something in more detail.",
+      },
     ],
   },
   {
     slug: "business-consulting",
-    title: "Business Consulting",
+    title: "Business Performance",
     icon: "compass",
+    ctaLabel: "Let’s Talk About Your Business",
     description:
-      "Practical, hands-on advisory that strengthens how your business runs and performs.",
-    capabilities: [
-      "Process improvement",
-      "Business performance reviews",
-      "Strategy sessions",
-      "KPI development",
-    ],
+      "Understand how your business is performing and identify where to improve.",
+    capabilities: [],
     headline:
-      "We work alongside you to sharpen how the business runs and where it’s heading.",
+      "Understand where your business stands, what needs to improve, and where to focus next.",
     whoFor:
-      "Owners and teams who know something needs to change but want a clear, practical plan to get there.",
-    deliverables: [
-      "Review how the business performs and where value quietly leaks out.",
-      "Map and improve the processes that slow your team down.",
-      "Set the KPIs and targets that keep everyone focused.",
-      "Run working strategy sessions that end in decisions, not just notes.",
+      "Business owners and managers who want a clearer view of how their business is performing and practical support to improve the way it operates.",
+    whoForNote:
+      "We look beyond individual numbers to assess the bigger picture, from sales and profitability to costs, processes, KPIs and day-to-day performance.",
+    deliverables: [],
+    helpWith: [
+      {
+        title: "Assess business performance",
+        description:
+          "Review the key areas of your business to understand what is performing well and where attention is needed.",
+      },
+      {
+        title: "Identify areas for improvement",
+        description:
+          "Find inefficiencies, performance gaps, rising costs and processes that may be holding the business back.",
+      },
+      {
+        title: "Set meaningful measures",
+        description:
+          "Define practical KPIs and performance measures that help you track progress against what actually matters.",
+      },
+      {
+        title: "Turn findings into action",
+        description:
+          "Prioritise improvements and develop practical next steps that your business can realistically implement.",
+      },
     ],
     gains: [
-      "A clear, prioritised plan instead of a long to-do list.",
-      "Fewer bottlenecks and cleaner day-to-day operations.",
-      "Confidence that effort is going where it counts.",
+      "A clearer understanding of where your business stands.",
+      "Visibility into what is helping or holding back performance.",
+      "Practical priorities instead of trying to fix everything at once.",
+      "A clearer path from identifying a problem to taking action.",
     ],
     packages: [
-      { name: "Performance Review", note: "one-off diagnostic and recommendations." },
-      { name: "Advisory Partnership", note: "ongoing strategy and review sessions." },
-      { name: "Focused Sprint", note: "hands-on work on one priority area." },
+      {
+        name: "Performance Review",
+        note: "A focused review of your business performance to identify strengths, gaps, risks and opportunities.",
+      },
+      {
+        name: "Performance Improvement Support",
+        note: "Ongoing support to help you address identified challenges, improve processes and monitor progress.",
+      },
+      {
+        name: "KPI & Performance Framework",
+        note: "Define the measures, targets and reporting structure you need to consistently monitor business performance.",
+      },
     ],
   },
   {
     slug: "dashboards-analytics",
     title: "Dashboards & Analytics",
     icon: "barChart",
+    ctaLabel: "Let’s Build Your Dashboard",
     description:
-      "Living dashboards and reports that make your key numbers visible, current and easy to read.",
-    capabilities: [
-      "Excel dashboards",
-      "Power BI dashboards",
-      "KPI tracking",
-      "Financial reporting",
-    ],
+      "See the numbers that matter and monitor your business with clarity.",
+    capabilities: [],
     headline:
-      "We turn your data into living dashboards that answer the questions you actually ask.",
+      "See what matters, monitor performance, and find the story behind your numbers.",
     whoFor:
-      "Teams tired of static reports who want their key numbers visible, current and easy to read.",
-    deliverables: [
-      "Design Excel and Power BI dashboards around your real decisions.",
-      "Track the KPIs that matter, refreshed on a schedule you can rely on.",
-      "Bring sales, stock and finance views into one clear picture.",
-      "Build reporting your team can read without a data background.",
+      "Businesses that have data but need a clearer, more useful way to view, monitor and explore their performance.",
+    whoForNote:
+      "We turn business data into clear dashboards and reports that bring your most important measures together, making it easier to see trends, compare performance and keep track of what matters.",
+    deliverables: [],
+    helpWith: [
+      {
+        title: "Bring your key numbers together",
+        description:
+          "Connect the information that matters so you can see your business performance in one clear view.",
+      },
+      {
+        title: "Make performance easy to monitor",
+        description:
+          "Build dashboards around the KPIs and questions that matter to your business, not just a collection of charts.",
+      },
+      {
+        title: "Explore what is driving performance",
+        description:
+          "Analyse trends, products, customers, periods and other areas to understand what is changing and where.",
+      },
+      {
+        title: "Communicate performance clearly",
+        description:
+          "Create reports that make your business information easier to understand and share with the people who need it.",
+      },
     ],
     gains: [
-      "Answers at a glance instead of digging through files.",
-      "Numbers everyone trusts and reads the same way.",
-      "Trends and risks you can see coming.",
+      "A clear view of the numbers that matter most.",
+      "Less time searching through spreadsheets and reports.",
+      "Faster visibility into changes in performance.",
+      "Information that is easier to understand and communicate.",
     ],
     packages: [
-      { name: "Dashboard Build", note: "one-off design and setup." },
-      { name: "Analytics Retainer", note: "maintenance, updates and new views." },
-      { name: "Reporting Refresh", note: "rework of an existing dashboard or report." },
+      {
+        name: "Dashboard Development",
+        note: "Design and build a dashboard around your business goals, data and reporting needs.",
+      },
+      {
+        name: "Reporting Setup",
+        note: "Create recurring reports that bring your key performance information together in a consistent format.",
+      },
+      {
+        name: "Analytics & Performance Review",
+        note: "Go beyond the dashboard to analyse trends, comparisons and patterns and understand what they mean.",
+      },
     ],
   },
   {
     slug: "business-systems",
     title: "Business Systems",
     icon: "layers",
+    ctaLabel: "Let’s Build a Better System",
     description:
-      "The underlying systems that capture accurate data and keep your operations organised.",
-    capabilities: [
-      "Sales systems",
-      "Inventory systems",
-      "Expense trackers",
-      "CRM systems",
-      "Payroll systems",
-    ],
+      "Create practical ways to capture and organise the information your business needs.",
+    capabilities: [],
     headline:
-      "We put the right systems in place so accurate data is captured from day one.",
+      "Build better ways to track, organise and manage the information your business depends on.",
     whoFor:
-      "Businesses relying on memory, paper or scattered files who need their operations organised.",
-    deliverables: [
-      "Set up sales, inventory and expense systems that fit how you work.",
-      "Introduce simple CRM and payroll tools your team will actually use.",
-      "Standardise how data is recorded so it stays clean and consistent.",
-      "Train your team to run the systems confidently without us.",
+      "Businesses that are relying on scattered spreadsheets, manual processes or disconnected records or simply need a better way to manage their day-to-day information.",
+    whoForNote:
+      "We design practical business systems that make it easier to capture accurate information, keep records organised and create a reliable foundation for better reporting and decision-making.",
+    deliverables: [],
+    helpWith: [
+      {
+        title: "Capture the right information",
+        description:
+          "Design practical ways to record the information your business actually needs.",
+      },
+      {
+        title: "Organise your records",
+        description:
+          "Bring scattered information into structured systems that are easier to maintain and use.",
+      },
+      {
+        title: "Simplify everyday tracking",
+        description:
+          "Reduce unnecessary manual work and make routine business processes easier to manage.",
+      },
+      {
+        title: "Create a foundation for better decisions",
+        description:
+          "Build systems that give you reliable information you can later analyze, report on and use to improve the business.",
+      },
     ],
     gains: [
-      "Accurate data captured automatically, not chased after.",
-      "Less time lost to manual admin and rework.",
-      "A foundation your reporting and decisions can rely on.",
+      "Better organised business information.",
+      "Less reliance on scattered spreadsheets and manual records.",
+      "Easier tracking of day-to-day business activity.",
+      "A stronger foundation for reporting and decision-making.",
     ],
     packages: [
-      { name: "System Setup", note: "one-off build and rollout." },
-      { name: "Systems Care", note: "ongoing support and improvements." },
-      { name: "Team Enablement", note: "training and documentation add-on." },
+      {
+        name: "Custom Business System",
+        note: "A tailored system designed around the way your business operates and the information you need to track.",
+      },
+      {
+        name: "System Improvement",
+        note: "Improve an existing spreadsheet, tracker or business process that is no longer working as well as it should.",
+      },
+      {
+        name: "Ready-Made Templates",
+        note: "Start with a practical template designed for common business needs and adapt it to your operations.",
+      },
     ],
   },
 ];
