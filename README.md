@@ -58,13 +58,44 @@ Everything below is intentionally a placeholder — no information was invented.
 - **Template prices** — `TEMPLATE_PRICE_PLACEHOLDER` in `lib/content.ts` ("Coming Soon").
 - **Production domain** — `site.url` in `lib/site.ts`.
 
+## Bookings
+
+Calendly-style consultation booking with live availability.
+
+- **`/bookings`** — visitors see each day's open-slot count, every time slot
+  (booked ones shown as "Booked"), and book with name + email.
+- **`/bookings/admin`** — password-protected week view of every slot
+  (open / booked / blocked / past), booking details, cancel bookings, block
+  or unblock slots.
+
+Opening hours, closed days, slot length, booking window and time zone live in
+`lib/booking.ts`. All "Talk to Us" buttons link to `/bookings`.
+
+**Setup**
+
+1. Copy `.env.example` → `.env.local` and set `ADMIN_PASSWORD` and
+   `ADMIN_SESSION_SECRET` (`openssl rand -base64 32`).
+2. Create a Supabase project, run
+   `supabase/migrations/20261121000000_create_bookings.sql` in its SQL editor,
+   and set `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` (server-only).
+   Without these, `npm run dev` stores bookings in `.data/bookings.json`
+   (dev only — production refuses to run bookings unconfigured).
+
+Double-booking is prevented in the database (unique index on confirmed
+slots), so two people submitting the same slot at once get one booking and
+one "slot just taken" message. The table has RLS on with no policies, so only
+the server's service-role key can read customer details.
+
+API: `GET /api/availability`, `POST /api/bookings` (public);
+`/api/admin/*` (session cookie required).
+
 ## Wiring up a backend later
 
 CTA destinations are centralised in `routes` (`lib/site.ts`). Point them at real
 endpoints when available:
 
-- Consultation booking (`routes.bookConsultation`)
-- Demo booking (`routes.bookDemo`)
+- ~~Consultation booking~~ — done, see **Bookings** above
+- Booking confirmation emails (TODO in `app/api/bookings/route.ts`)
 - WhatsApp / email / contact form
 - Template purchases & downloads
 

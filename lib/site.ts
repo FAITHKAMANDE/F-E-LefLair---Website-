@@ -31,10 +31,10 @@ export const navLinks = [
  * TODO: wire these to real booking, WhatsApp and form endpoints.
  */
 export const routes = {
-  bookConsultation: "/contact#book", // TODO: connect to booking system
+  bookConsultation: "/bookings",
   exploreSolutions: "/services",
   viewTemplates: "/templates",
-  bookDemo: "/contact#book", // TODO: connect to demo booking
+  bookDemo: "/bookings",
 };
 
 /**

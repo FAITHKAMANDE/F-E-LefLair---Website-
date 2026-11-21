@@ -3,7 +3,6 @@ import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { BookingProvider } from "@/components/booking/BookingProvider";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -76,11 +75,9 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <BookingProvider>
-          <Navbar />
-          <main id="main">{children}</main>
-          <Footer />
-        </BookingProvider>
+        <Navbar />
+        <main id="main">{children}</main>
+        <Footer />
       </body>
     </html>
   );
