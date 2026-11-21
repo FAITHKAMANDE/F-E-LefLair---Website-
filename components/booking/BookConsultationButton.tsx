@@ -1,15 +1,13 @@
-"use client";
-
 import { CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { useBooking } from "./BookingProvider";
+import { routes } from "@/lib/site";
 
 type Variant = "primary" | "secondary" | "ghost" | "outline";
 type Size = "sm" | "md" | "lg";
 
 /**
- * A "Book a Consultation" button that opens the shared booking modal instead
- * of navigating. Accepts the same visual props as <Button>.
+ * A "Talk to Us" button that links to the /bookings page.
+ * Accepts the same visual props as <Button>.
  */
 export function BookConsultationButton({
   children = "Talk to Us",
@@ -26,18 +24,13 @@ export function BookConsultationButton({
   withIcon?: boolean;
   onClick?: () => void;
 }) {
-  const { open } = useBooking();
-
   return (
     <Button
-      type="button"
+      href={routes.bookConsultation}
       variant={variant}
       size={size}
       className={className}
-      onClick={() => {
-        onClick?.();
-        open();
-      }}
+      onClick={onClick}
     >
       {withIcon && <CalendarCheck className="h-4 w-4" aria-hidden />}
       {children}
